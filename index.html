@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Waymark — Marking the Way Back</title>
+<meta name="description" content="Waymark helps couples and individuals find the way back to wholeness — through coaching, spiritual direction, and guidance rooted in five decades of relationship restoration." />
+<link rel="icon" type="image/png" href="assets/waymark-icon.png" />
+<link rel="apple-touch-icon" href="assets/waymark-icon.png" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --cream:      #FBF8F1;
+    --cream-deep: #F3ECDD;
+    --sand:       #EFE6D2;
+    --ink:        #16223F;
+    --ink-soft:   #3C4458;
+    --muted:      #5E6473;
+    --navy:       #1C2C4C;
+    --navy-deep:  #121E38;
+    --forest:     #1C2C4C;
+    --forest-deep:#121E38;
+    --sage:       #8893A6;
+    --sage-soft:  #E4E8F1;
+    --gold:       #C19A4B;
+    --gold-deep:  #A47C2C;
+    --gold-light: #E6D3A0;
+    --line:       rgba(22,34,63,0.11);
+    --shadow-sm:  0 2px 20px rgba(18,28,54,0.07);
+    --shadow-md:  0 18px 50px rgba(18,28,54,0.12);
+    --shadow-lg:  0 30px 80px rgba(18,28,54,0.16);
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans:  'Montserrat', system-ui, sans-serif;
+    --maxw:  1180px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  body {
+    font-family: var(--sans);
+    color: var(--ink-soft);
+    background: var(--cream);
+    line-height: 1.75;
+    font-weight: 300;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, .serif { font-family: var(--serif); color: var(--ink); font-weight: 500; line-height: 1.12; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  .wrap { width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 28px; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--gold-deep);
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .eyebrow::before {
+    content: "";
+    width: 28px; height: 1px;
+    background: var(--gold);
+    display: inline-block;
+  }
+  .eyebrow.center::after {
+    content: "";
+    width: 28px; height: 1px;
+    background: var(--gold);
+    display: inline-block;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--sans); font-size: 13.5px; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 16px 30px; border-radius: 100px; cursor: pointer;
+    transition: transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
+    border: 1px solid transparent; white-space: nowrap;
+  }
+  .btn .arrow { transition: transform .25s ease; }
+  .btn:hover .arrow { transform: translateX(4px); }
+  .btn-gold { background: var(--gold); color: #fff; box-shadow: 0 10px 30px rgba(164,124,44,0.28); }
+  .btn-gold:hover { background: var(--gold-deep); box-shadow: 0 14px 36px rgba(164,124,44,0.34); }
+  .btn-outline { background: transparent; color: var(--navy); border-color: rgba(28,44,76,0.32); }
+  .btn-outline:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+  .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-ghost:hover { background: var(--ink); color: var(--cream); }
+
+  /* ---------- Nav ---------- */
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    transition: background .4s ease, box-shadow .4s ease, padding .4s ease, border-color .4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  header.scrolled {
+    background: rgba(251,248,241,0.86);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 1px 0 rgba(18,28,54,0.05);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 92px; transition: height .4s ease; }
+  header.scrolled .nav { height: 74px; }
+  .brand { display: flex; align-items: center; gap: 13px; }
+  .brand-emblem { height: 54px; width: 54px; flex: none; transition: height .4s ease, width .4s ease; }
+  header.scrolled .brand-emblem { height: 45px; width: 45px; }
+  .brand-word { display: flex; flex-direction: column; line-height: 1; }
+  .brand-word .name { font-family: var(--serif); font-size: 27px; font-weight: 600; letter-spacing: 0.17em; color: var(--ink); }
+  .brand-word .tag { font-family: var(--sans); font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+
+  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links a.navlink {
+    font-size: 13.5px; font-weight: 400; letter-spacing: 0.04em; color: var(--ink-soft);
+    position: relative; padding: 6px 0; transition: color .25s ease;
+  }
+  .nav-links a.navlink::after {
+    content: ""; position: absolute; left: 0; bottom: 0; height: 1px; width: 0;
+    background: var(--gold); transition: width .3s ease;
+  }
+  .nav-links a.navlink:hover { color: var(--ink); }
+  .nav-links a.navlink:hover::after { width: 100%; }
+  .nav .btn { padding: 12px 24px; }
+
+  .lang-toggle { display: inline-flex; align-items: center; gap: 2px; border: 1px solid var(--line); border-radius: 100px; padding: 3px; }
+  .lang-toggle button { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 100px; border: none; background: transparent; color: var(--muted); cursor: pointer; transition: background .2s ease, color .2s ease; }
+  .lang-toggle button:hover { color: var(--ink); }
+  .lang-toggle button.active { background: var(--navy); color: var(--cream); }
+  .lang-toggle button.active:hover { color: var(--cream); }
+  .lang-toggle.mobile { margin-top: 22px; transform: scale(1.2); }
+
+  .menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 8px; }
+  .menu-btn svg { width: 26px; height: 26px; }
+
+  .mobile-menu {
+    position: fixed; inset: 0; z-index: 49; background: var(--cream);
+    display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 8px;
+    transform: translateY(-100%); transition: transform .5s cubic-bezier(.7,0,.2,1), visibility .5s;
+    padding: 40px; visibility: hidden; overflow-y: auto;
+  }
+  .mobile-menu.open { transform: translateY(0); visibility: visible; }
+  .mobile-menu a { font-family: var(--serif); font-size: 34px; color: var(--ink); padding: 10px; }
+  .mobile-menu a:hover { color: var(--gold-deep); }
+  .mobile-menu .btn { margin-top: 24px; }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative; padding: 178px 0 110px;
+    background:
+      radial-gradient(1100px 620px at 78% -8%, rgba(230,211,160,0.45), transparent 60%),
+      radial-gradient(900px 560px at 6% 108%, rgba(206,215,234,0.55), transparent 58%),
+      linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
+    overflow: hidden;
+  }
+  .hero-path { position: absolute; inset: 0; pointer-events: none; opacity: .5; }
+  .hero-grid { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 60px; align-items: center; position: relative; z-index: 2; }
+  .hero h1 { font-size: clamp(46px, 6.4vw, 86px); letter-spacing: -0.5px; margin: 26px 0 0; }
+  .hero h1 .accent { font-style: italic; color: var(--gold-deep); }
+  .hero .lead { font-size: 20px; font-weight: 300; color: var(--ink-soft); max-width: 540px; margin: 30px 0 38px; }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; }
+  .hero-proof { margin-top: 46px; display: flex; align-items: center; gap: 16px; color: var(--muted); font-size: 13.5px; }
+  .hero-proof .dots { display: flex; }
+  .hero-proof .dots span { width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--cream); margin-left: -10px; background: var(--sage-soft); display: grid; place-items: center; font-family: var(--serif); font-weight: 600; color: var(--forest); font-size: 14px; }
+
+  /* Hero art card */
+  .hero-art { position: relative; }
+  .hero-card {
+    position: relative; background: #fff; border-radius: 22px; padding: 14px;
+    box-shadow: var(--shadow-lg); border: 1px solid rgba(255,255,255,0.7);
+  }
+  .hero-card .photo {
+    border-radius: 14px; height: 540px;
+    background: linear-gradient(160deg, #26375a, #14213d);
+    position: relative; overflow: hidden; display: flex; align-items: flex-end;
+  }
+  .hero-card .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .hero-card .photo .scrim { position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(to top, rgba(11,18,36,0.88) 0%, rgba(11,18,36,0.32) 42%, rgba(11,18,36,0) 68%); }
+  .hero-card .photo .quote { position: relative; z-index: 2; padding: 34px; }
+  .hero-card .photo .quote p { font-family: var(--serif); font-style: italic; font-size: 25px; line-height: 1.3; color: #fff; max-width: 320px; }
+  .hero-card .photo .quote .q-mark { font-family: var(--serif); font-size: 80px; line-height: 0; color: var(--gold-light); opacity: .7; display: block; height: 34px; }
+  .floating-badge {
+    position: absolute; z-index: 5; top: -22px; left: -26px; background: var(--cream);
+    border: 1px solid var(--line); border-radius: 16px; padding: 16px 20px;
+    box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 14px;
+  }
+  .floating-badge .ico { width: 42px; height: 42px; border-radius: 50%; background: var(--sand); display: grid; place-items: center; color: var(--gold-deep); }
+  .floating-badge .ico svg { width: 22px; height: 22px; }
+  .floating-badge .t { font-family: var(--serif); font-size: 22px; color: var(--ink); line-height: 1; }
+  .floating-badge .s { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 3px; }
+
+  /* ---------- Marquee / legacy strip ---------- */
+  .legacy { background: var(--forest); color: var(--cream); padding: 26px 0; }
+  .legacy .wrap { display: flex; align-items: center; justify-content: center; gap: 70px; flex-wrap: wrap; }
+  .legacy .item { display: flex; align-items: center; gap: 14px; }
+  .legacy .item .big { font-family: var(--serif); font-size: 34px; color: var(--gold-light); line-height: 1; }
+  .legacy .item .lbl { font-size: 12.5px; letter-spacing: 0.06em; color: rgba(251,248,241,0.74); max-width: 150px; }
+  .legacy .divider { width: 1px; height: 40px; background: rgba(251,248,241,0.16); }
+
+  /* ---------- Section scaffolding ---------- */
+  section.block { padding: 110px 0; }
+  .sec-head { max-width: 720px; }
+  .sec-head.center { margin: 0 auto; text-align: center; }
+  .sec-head h2 { font-size: clamp(34px, 4.4vw, 54px); margin: 18px 0 0; letter-spacing: -0.3px; }
+  .sec-head p { margin-top: 20px; font-size: 18.5px; color: var(--muted); font-weight: 300; }
+
+  /* ---------- About ---------- */
+  .about { background: var(--cream); }
+  .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 70px; align-items: center; }
+  .about-visual { position: relative; }
+  .about-visual .mark {
+    aspect-ratio: 1; border-radius: 26px; background: linear-gradient(160deg, var(--sage-soft), #fff);
+    border: 1px solid var(--line); box-shadow: var(--shadow-md); display: grid; place-items: center;
+    position: relative; overflow: hidden;
+  }
+  .about-visual .mark svg { width: 78%; height: 78%; }
+  .about-visual .seal {
+    position: absolute; bottom: -24px; right: -24px; width: 132px; height: 132px; border-radius: 50%;
+    background: var(--gold); color: #fff; display: grid; place-items: center; text-align: center;
+    box-shadow: var(--shadow-md); font-family: var(--serif); padding: 16px;
+  }
+  .about-visual .seal span { font-size: 13px; line-height: 1.35; font-weight: 500; letter-spacing: .02em; }
+  .about-body h2 { font-size: clamp(32px, 4vw, 50px); }
+  .about-body .pullout {
+    font-family: var(--serif); font-style: italic; font-size: 25px; color: var(--forest);
+    border-left: 2px solid var(--gold); padding-left: 22px; margin: 30px 0; line-height: 1.4;
+  }
+  .about-body p { margin-bottom: 18px; }
+  .sign { margin-top: 28px; }
+  .sign .nm { font-family: var(--serif); font-size: 26px; color: var(--ink); }
+  .sign .rl { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+
+
+  /* ---------- Services ---------- */
+  .services { background: var(--forest); color: var(--cream); position: relative; overflow: hidden; }
+  .services .sec-head h2 { color: var(--cream); }
+  .services .sec-head .eyebrow { color: var(--gold-light); }
+  .services .sec-head .eyebrow::before, .services .sec-head .eyebrow::after { background: var(--gold-light); }
+  .services .sec-head p { color: rgba(251,248,241,0.74); }
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 56px; }
+  .svc {
+    background: rgba(251,248,241,0.05); border: 1px solid rgba(251,248,241,0.12); border-radius: 18px;
+    padding: 36px 30px; transition: background .3s ease, transform .3s ease, border-color .3s ease;
+  }
+  .svc:hover { background: rgba(251,248,241,0.09); transform: translateY(-5px); border-color: rgba(230,211,160,0.4); }
+  .svc .ic { width: 50px; height: 50px; border-radius: 50%; background: rgba(230,211,160,0.16); display: grid; place-items: center; color: var(--gold-light); margin-bottom: 22px; }
+  .svc .ic svg { width: 24px; height: 24px; }
+  .svc h3 { color: var(--cream); font-size: 24px; margin-bottom: 10px; }
+  .svc p { font-size: 15.5px; color: rgba(251,248,241,0.72); font-weight: 300; }
+
+  /* ---------- Approach ---------- */
+  .approach { background: var(--cream); }
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; margin-top: 60px; position: relative; }
+  .step { text-align: center; padding: 0 10px; }
+  .step .circle {
+    width: 90px; height: 90px; border-radius: 50%; margin: 0 auto 26px; display: grid; place-items: center;
+    background: #fff; border: 1px solid var(--line); box-shadow: var(--shadow-sm); position: relative;
+  }
+  .step .circle .n { font-family: var(--serif); font-size: 32px; color: var(--gold-deep); }
+  .step h3 { font-size: 25px; margin-bottom: 10px; }
+  .step p { font-size: 16px; color: var(--muted); max-width: 320px; margin: 0 auto; }
+  .steps .joiner { position: absolute; top: 45px; left: 16.66%; right: 16.66%; height: 1px; background: repeating-linear-gradient(90deg, var(--gold) 0 6px, transparent 6px 14px); z-index: 0; }
+
+  /* ---------- Books ---------- */
+  .books { background: linear-gradient(180deg, var(--cream), var(--cream-deep)); }
+  .book-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 26px; margin-top: 56px; }
+  .book { text-align: center; }
+  .book .cover {
+    aspect-ratio: 3/4.2; border-radius: 8px 12px 12px 8px; box-shadow: var(--shadow-md);
+    display: flex; flex-direction: column; justify-content: space-between; padding: 24px 22px;
+    position: relative; overflow: hidden; transition: transform .35s ease, box-shadow .35s ease;
+    border-left: 5px solid rgba(0,0,0,0.18);
+  }
+  .book:hover .cover { transform: translateY(-8px) rotate(-1deg); box-shadow: var(--shadow-lg); }
+  .book .cover.c1 { background: linear-gradient(165deg, #20335a, #131f3a); }
+  .book .cover.c2 { background: linear-gradient(165deg, #b88a3c, #846326); }
+  .book .cover.c3 { background: linear-gradient(165deg, #7a5c2e, #4f3f1d); }
+  .book .cover.c4 { background: linear-gradient(165deg, #2a4068, #16243f); }
+  .book .cover .pub { font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-light); }
+  .book .cover .bt { font-family: var(--serif); font-size: 23px; color: #fff; line-height: 1.12; text-align: left; }
+  .book .cover .bd { width: 30px; height: 2px; background: var(--gold-light); margin-top: 12px; }
+  .book .label { margin-top: 18px; }
+  .book .label .bn { font-family: var(--serif); font-size: 19px; color: var(--ink); line-height: 1.2; }
+  .book .label .bs { font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+
+  /* ---------- Testimonial ---------- */
+  .testi { background: var(--cream-deep); }
+  .testi-card {
+    max-width: 880px; margin: 0 auto; text-align: center; background: #fff; border-radius: 24px;
+    padding: 64px 60px; box-shadow: var(--shadow-md); border: 1px solid var(--line); position: relative;
+  }
+  .testi-card .stars { color: var(--gold); letter-spacing: 4px; font-size: 18px; margin-bottom: 20px; }
+  .testi-card blockquote { font-family: var(--serif); font-size: clamp(25px, 3.3vw, 36px); line-height: 1.35; color: var(--ink); font-style: italic; }
+  .testi-card .who { margin-top: 28px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); font-weight: 500; }
+
+  /* ---------- Blog / journal ---------- */
+  .blog { background: var(--cream); }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin: 52px 0 44px; }
+  .post { background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .35s ease, box-shadow .35s ease; display: flex; flex-direction: column; }
+  .post:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+  .post .thumb { height: 158px; position: relative; }
+  .post .thumb.t1 { background: linear-gradient(160deg, #26375a, #14213d); }
+  .post .thumb.t2 { background: linear-gradient(160deg, #b88a3c, #846326); }
+  .post .thumb.t3 { background: linear-gradient(160deg, #2a4068, #16243f); }
+  .post .cat { position: absolute; top: 14px; left: 14px; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; background: rgba(11,18,36,0.34); padding: 6px 13px; border-radius: 100px; }
+  .post .body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
+  .post h3 { font-size: 23px; line-height: 1.18; margin-bottom: 10px; }
+  .post p { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
+  .post .read { margin-top: auto; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold-deep); display: inline-flex; align-items: center; gap: 7px; }
+  .post .read svg { width: 15px; height: 15px; transition: transform .25s ease; }
+  .post:hover .read svg { transform: translateX(4px); }
+  .blog .blog-cta { text-align: center; }
+
+  /* ---------- CTA band ---------- */
+  .cta {
+    background:
+      radial-gradient(700px 400px at 80% 0%, rgba(193,154,75,0.30), transparent 60%),
+      var(--forest-deep);
+    color: var(--cream); text-align: center; padding: 110px 0;
+  }
+  .cta h2 { color: var(--cream); font-size: clamp(38px, 5vw, 64px); max-width: 880px; margin: 22px auto 0; letter-spacing: -0.3px; }
+  .cta .eyebrow { color: var(--gold-light); }
+  .cta .eyebrow::before, .cta .eyebrow::after { background: var(--gold-light); }
+  .cta p { max-width: 580px; margin: 26px auto 40px; color: rgba(251,248,241,0.8); font-size: 19px; font-weight: 300; }
+  .cta .hero-cta { justify-content: center; }
+  .cta .btn-outline { color: var(--cream); border-color: rgba(251,248,241,0.4); }
+  .cta .btn-outline:hover { background: var(--cream); color: var(--forest-deep); border-color: var(--cream); }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--ink); color: rgba(251,248,241,0.7); padding: 80px 0 36px; }
+  .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 44px; }
+  .foot-lock { display: flex; align-items: center; gap: 13px; margin-bottom: 22px; }
+  .foot-emblem { width: 58px; height: 58px; flex: none; }
+  .foot-word { display: flex; flex-direction: column; line-height: 1; }
+  .foot-brand .fb-name { font-family: var(--serif); font-size: 30px; color: var(--gold-light); letter-spacing: 0.1em; }
+  .foot-brand .fb-tag { font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(251,248,241,0.55); margin: 5px 0 0; }
+  .foot-brand p { font-size: 15px; max-width: 320px; font-weight: 300; }
+  .foot-col h4 { font-family: var(--sans); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; font-weight: 500; }
+  .foot-col a, .foot-col .li { display: block; font-size: 15px; color: rgba(251,248,241,0.7); margin-bottom: 13px; font-weight: 300; transition: color .2s ease; }
+  .foot-col a:hover { color: var(--gold-light); }
+  .foot-bottom { margin-top: 60px; padding-top: 28px; border-top: 1px solid rgba(251,248,241,0.12); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; font-size: 13px; color: rgba(251,248,241,0.5); }
+  .foot-bottom .socials { display: flex; gap: 14px; }
+  .foot-bottom .socials a { width: 38px; height: 38px; border-radius: 50%; border: 1px solid rgba(251,248,241,0.18); display: grid; place-items: center; color: rgba(251,248,241,0.65); transition: all .25s ease; }
+  .foot-bottom .socials a:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
+  .foot-bottom .socials svg { width: 17px; height: 17px; }
+
+  /* ---------- Reveal animation ---------- */
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .9s cubic-bezier(.2,.7,.2,1), transform .9s cubic-bezier(.2,.7,.2,1); }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1080px) {
+    .nav-links { display: none; }
+    .menu-btn { display: block; }
+    .nav .btn.desktop-cta { display: none; }
+  }
+  @media (max-width: 980px) {
+    .hero-grid, .about-grid { grid-template-columns: 1fr; gap: 48px; }
+    .hero-art { max-width: 460px; }
+    .svc-grid, .steps, .book-grid, .blog-grid, .foot-grid { grid-template-columns: repeat(2, 1fr); }
+    .steps .joiner { display: none; }
+    .legacy .divider { display: none; }
+    .legacy .wrap { justify-content: center; gap: 30px 44px; }
+    section.block { padding: 84px 0; }
+  }
+  @media (max-width: 600px) {
+    .wrap { padding: 0 20px; }
+    .svc-grid, .steps, .book-grid, .blog-grid, .foot-grid { grid-template-columns: 1fr; }
+    .hero { padding: 140px 0 80px; }
+    .hero .lead { font-size: 18px; }
+    .testi-card { padding: 44px 26px; }
+    .floating-badge { left: 8px; top: -16px; }
+    .about-visual .seal { width: 108px; height: 108px; right: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= NAV ================= -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="Waymark home">
+      <img class="brand-emblem" src="assets/waymark-emblem.png" alt="Waymark Inc." />
+      <span class="brand-word">
+        <span class="name">WAYMARK</span>
+        <span class="tag">Marking the way back</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a class="navlink" href="#about" data-i18n="nav-about">Our Story</a>
+      <a class="navlink" href="#services" data-i18n="nav-coaching">Coaching</a>
+      <a class="navlink" href="#training" data-i18n="nav-training">Training</a>
+      <a class="navlink" href="#books" data-i18n="nav-resources">Resources</a>
+      <a class="navlink" href="#blog" data-i18n="nav-blog">Blog</a>
+      <a class="btn btn-gold desktop-cta" href="#contact" data-i18n="nav-cta">Begin the journey <span class="arrow">→</span></a>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" data-i18n="nav-about">Our Story</a>
+  <a href="#services" data-i18n="nav-coaching">Coaching</a>
+  <a href="#training" data-i18n="nav-training">Training</a>
+  <a href="#books" data-i18n="nav-resources">Resources</a>
+  <a href="#blog" data-i18n="nav-blog">Blog</a>
+  <a class="btn btn-gold" href="#contact" data-i18n="nav-cta-m">Begin the journey</a>
+  <div class="lang-toggle mobile" role="group" aria-label="Language">
+    <button type="button" data-lang="en">EN</button>
+    <button type="button" data-lang="es">ES</button>
+  </div>
+</div>
+
+<span id="top"></span>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <svg class="hero-path" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <path d="M-50 760 C 300 700, 360 480, 600 460 S 980 420, 1100 250 S 1300 60, 1520 30"
+          fill="none" stroke="#C19A4B" stroke-width="1.5" stroke-dasharray="2 10" opacity="0.5"/>
+    <path d="M-50 800 C 360 740, 420 540, 680 520 S 1080 470, 1220 300"
+          fill="none" stroke="#8893A6" stroke-width="1" stroke-dasharray="2 12" opacity="0.45"/>
+  </svg>
+
+  <div class="wrap hero-grid">
+    <div class="hero-copy reveal">
+      <span class="eyebrow" data-i18n="hero-eyebrow">Marking the way back</span>
+      <h1 data-i18n="hero-h1">Marking the <span class="accent">way back</span> to the life you were made for.</h1>
+      <p class="lead" data-i18n="hero-lead">For over five decades, we've walked with couples and individuals through the hardest seasons of love and life — and helped them find the path home. Wherever you are, there is a way back.</p>
+      <div class="hero-cta">
+        <a href="#services" class="btn btn-gold" data-i18n="hero-cta1">Explore coaching <span class="arrow">→</span></a>
+        <a href="#contact" class="btn btn-outline" data-i18n="hero-cta2">Talk with a guide</a>
+      </div>
+      <div class="hero-proof">
+        <div class="dots" aria-hidden="true"><span>D</span><span>S</span><span>J</span><span>M</span></div>
+        <span data-i18n="hero-proof">Walking with couples on the road back to each other.</span>
+      </div>
+    </div>
+
+    <div class="hero-art reveal">
+      <div class="floating-badge">
+        <span class="ic ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.35-9.5-9C1 9 2.5 5 6.5 5 9 5 12 7.5 12 7.5S15 5 17.5 5C21.5 5 23 9 21.5 12 19 16.65 12 21 12 21z"/></svg></span>
+        <div><div class="t" data-i18n="badge-t">No marriage</div><div class="s" data-i18n="badge-s">is beyond repair</div></div>
+      </div>
+      <div class="hero-card">
+        <div class="photo">
+          <img src="assets/hero.jpg" alt="Golden sunrise over layers of misty mountains" />
+          <div class="scrim"></div>
+          <div class="quote">
+            <span class="q-mark">&ldquo;</span>
+            <p data-i18n="hero-quote">Healing is not a moment. It is a direction — one honest step at a time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LEGACY STRIP ================= -->
+<section class="legacy">
+  <div class="wrap">
+    <div class="item"><span class="big">50+</span><span class="lbl" data-i18n="legacy1">Years of relationship coaching</span></div>
+    <div class="divider"></div>
+    <div class="item"><span class="big">1</span><span class="lbl" data-i18n="legacy2">Conviction that guides it all</span></div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="block about" id="about">
+  <div class="wrap about-grid">
+    <div class="about-visual reveal">
+      <div class="mark">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="82" fill="none" stroke="#C19A4B" stroke-width="3"/>
+          <path d="M70 150 C 95 120, 70 100, 105 78 S 130 50, 112 38" fill="none" stroke="#C19A4B" stroke-width="14" stroke-linecap="round" opacity="0.85"/>
+          <path d="M70 150 C 95 120, 70 100, 105 78 S 130 50, 112 38" fill="none" stroke="#1C2C4C" stroke-width="2" stroke-dasharray="5 7" stroke-linecap="round"/>
+          <circle cx="112" cy="40" r="6" fill="#A47C2C"/>
+        </svg>
+      </div>
+      <div class="seal"><span data-i18n="about-seal">Est.<br/>Marking the<br/>way back</span></div>
+    </div>
+
+    <div class="about-body reveal">
+      <span class="eyebrow" data-i18n="about-eyebrow">What is a waymark?</span>
+      <h2 data-i18n="about-h2">A sign, set in the ground, that says: the path is still here.</h2>
+      <p data-i18n="about-p1">A waymark is a marker placed along a trail — a stone, a post, a painted blaze — left by those who walked before so that no one who follows loses the way. When the road is overgrown and the fog rolls in, a waymark is what tells a weary traveler they are not lost. They are simply between one marker and the next.</p>
+      <p class="pullout" data-i18n="about-pullout">That is what we do. We mark the way back — to your marriage, to your family, to your faith, to yourself.</p>
+      <p data-i18n="about-p2">Waymark is the next chapter of the life's work of <strong>Dr. Jim Talley</strong>, whose coaching helped countless couples move from the edge of separation back into restored, lasting relationships. We carry that work forward with the same conviction that grounded it: that healing is possible, that boundaries are an act of love, and that no relationship is ever truly beyond repair.</p>
+      <div class="sign">
+        <div class="nm" data-i18n="about-nm">The Waymark Team</div>
+        <div class="rl" data-i18n="about-rl">Carrying the work forward</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="block services" id="services">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center" data-i18n="svc-eyebrow">One-on-one guidance</span>
+      <h2 data-i18n="svc-h2">Coaching &amp; spiritual direction</h2>
+      <p data-i18n="svc-sub">When you'd rather walk with someone than walk alone. Confidential, compassionate, and grounded in decades of experience.</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3 data-i18n="svc1-h">Couples Coaching</h3>
+        <p data-i18n="svc1-p">Structured sessions for couples in crisis, rebuilding after betrayal, or simply wanting to grow closer. We meet you where you are.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3l8 4v5c0 5-3.5 8-8 9-4.5-1-8-4-8-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3 data-i18n="svc2-h">Marriage Restoration</h3>
+        <p data-i18n="svc2-p">An intensive, guided path for marriages on the brink — proven steps that move couples from separation back toward a lasting covenant.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a7 7 0 0 0-7 7c0 3 2 5 2 7h10c0-2 2-4 2-7a7 7 0 0 0-7-7z"/><path d="M9 21h6M10 18v3M14 18v3"/></svg></div>
+        <h3 data-i18n="svc3-h">Spiritual Direction</h3>
+        <p data-i18n="svc3-p">Faith-centered guidance for the questions beneath the questions — purpose, forgiveness, identity, and the road back to peace.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 7V5a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v2"/><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M3 12h18"/></svg></div>
+        <h3 data-i18n="svc4-h">Boundary Coaching</h3>
+        <p data-i18n="svc4-p">One-on-one support for setting healthy limits — in marriage, family, and friendship — without guilt and without losing connection.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <h3 data-i18n="svc5-h">Phone Consultations</h3>
+        <p data-i18n="svc5-p">Direct, private conversations when you need wise guidance quickly. Call <strong>(405) 822-8300</strong> to begin.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></div>
+        <h3 data-i18n="svc6-h">Premarital Guidance</h3>
+        <p data-i18n="svc6-p">Begin in the right order. Preparation that helps couples build intimacy on a foundation strong enough to last a lifetime.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APPROACH ================= -->
+<section class="block approach">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center" data-i18n="appr-eyebrow">How it works</span>
+      <h2 data-i18n="appr-h2">Three steps, one honest direction</h2>
+    </div>
+    <div class="steps">
+      <div class="joiner" aria-hidden="true"></div>
+      <div class="step reveal">
+        <div class="circle"><span class="n">I</span></div>
+        <h3 data-i18n="step1-h">Find your footing</h3>
+        <p data-i18n="step1-p">Start with a conversation. We listen, take stock of where you are, and name the next honest step — no pressure, no judgment.</p>
+      </div>
+      <div class="step reveal">
+        <div class="circle"><span class="n">II</span></div>
+        <h3 data-i18n="step2-h">Walk the path</h3>
+        <p data-i18n="step2-p">Through one-on-one coaching, you follow a clear, proven framework — one marker at a time — with guidance whenever you need it.</p>
+      </div>
+      <div class="step reveal">
+        <div class="circle"><span class="n">III</span></div>
+        <h3 data-i18n="step3-h">Arrive restored</h3>
+        <p data-i18n="step3-p">Rebuilt trust, healthier boundaries, and a relationship grounded to last. And the tools to help mark the way for someone else.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TRAINING ================= -->
+<section class="block services" id="training">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center" data-i18n="train-eyebrow">For coaches &amp; leaders</span>
+      <h2 data-i18n="train-h2">Training &amp; certification</h2>
+      <p data-i18n="train-sub">Equip yourself to walk others back to wholeness — the Talley method, structured for pastors, lay coaches, and leaders who want to make a lasting impact.</p>
+    </div>
+
+    <div class="svc-grid">
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="5"/><path d="M8.2 12.5 7 21l5-2.6L17 21l-1.2-8.5"/></svg></div>
+        <h3 data-i18n="train1-h">Certified curriculum</h3>
+        <p data-i18n="train1-p">A structured, proven framework you can carry into your own ministry or practice — and teach with confidence.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11"/></svg></div>
+        <h3 data-i18n="train2-h">Mentored cohorts</h3>
+        <p data-i18n="train2-p">Learn alongside other leaders, with direct guidance from seasoned coaches who have walked this road.</p>
+      </div>
+      <div class="svc reveal">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a4 4 0 0 1-5.4 5.4l-5.6 5.6a2.1 2.1 0 0 0 3 3l5.6-5.6a4 4 0 0 0 5.4-5.4l-2.6 2.6-2-2 2.6-2.6z"/></svg></div>
+        <h3 data-i18n="train3-h">Real-world tools</h3>
+        <p data-i18n="train3-p">Practical resources for the hardest conversations the couples in your care will bring to you.</p>
+      </div>
+    </div>
+
+    <div style="text-align:center; margin-top: 44px;">
+      <a href="#contact" class="btn btn-gold" data-i18n="train-cta">Apply for training <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOKS ================= -->
+<section class="block books" id="books">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center" data-i18n="books-eyebrow">From the library</span>
+      <h2 data-i18n="books-h2">Books &amp; resources</h2>
+      <p data-i18n="books-sub">The writings that have guided couples for a generation — now part of the Waymark collection.</p>
+    </div>
+    <div class="book-grid">
+      <div class="book reveal">
+        <div class="cover c1"><span class="pub" data-i18n="book1-pub">Digital Edition</span><div><div class="bt">Too Close, Too Soon</div><div class="bd"></div></div></div>
+        <div class="label"><div class="bn">Too Close, Too Soon</div><div class="bs" data-i18n="book1-bs">In the Digital Age</div></div>
+      </div>
+      <div class="book reveal">
+        <div class="cover c4"><span class="pub" data-i18n="book2-pub">On reconciliation</span><div><div class="bt">Reconcilable Differences</div><div class="bd"></div></div></div>
+        <div class="label"><div class="bn">Reconcilable Differences</div><div class="bs" data-i18n="book2-bs">Rebuilding broken trust</div></div>
+      </div>
+      <div class="book reveal">
+        <div class="cover c3"><span class="pub" data-i18n="book3-pub">On conflict</span><div><div class="bt">Fight or Flight</div><div class="bd"></div></div></div>
+        <div class="label"><div class="bn">Fight or Flight</div><div class="bs" data-i18n="book3-bs">Facing conflict with courage</div></div>
+      </div>
+      <div class="book reveal">
+        <div class="cover c2"><span class="pub">Edición en Español</span><div><div class="bt">Diferencias Reconciliables</div><div class="bd"></div></div></div>
+        <div class="label"><div class="bn">Diferencias Reconciliables</div><div class="bs" data-i18n="book4-bs">Reconcilable Differences en español</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOG ================= -->
+<section class="block blog" id="blog">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow center" data-i18n="blog-eyebrow">From the journal</span>
+      <h2 data-i18n="blog-h2">Insights for the journey</h2>
+      <p data-i18n="blog-sub">Encouragement, practical guidance, and stories of restoration — new reflections on love, faith, and finding the way back.</p>
+    </div>
+
+    <div class="blog-grid">
+      <article class="post reveal">
+        <div class="thumb t1"><span class="cat" data-i18n="post1-cat">Marriage</span></div>
+        <div class="body">
+          <h3 data-i18n="post1-h">The first honest conversation after betrayal</h3>
+          <p data-i18n="post1-p">Where to begin when trust is broken — and how the first words can either deepen the wound or start the healing.</p>
+          <a href="#" class="read"><span data-i18n="read-more">Read</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="post reveal">
+        <div class="thumb t2"><span class="cat" data-i18n="post2-cat">Boundaries</span></div>
+        <div class="body">
+          <h3 data-i18n="post2-h">Why loving limits aren't walls</h3>
+          <p data-i18n="post2-p">Boundaries are not how we push people away. They're how we stay close without losing ourselves.</p>
+          <a href="#" class="read"><span data-i18n="read-more">Read</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+      <article class="post reveal">
+        <div class="thumb t3"><span class="cat" data-i18n="post3-cat">Faith</span></div>
+        <div class="body">
+          <h3 data-i18n="post3-h">Finding hope when the way feels lost</h3>
+          <p data-i18n="post3-p">Some seasons feel like fog with no markers. Here is how to take the next honest step when you can't see the whole path.</p>
+          <a href="#" class="read"><span data-i18n="read-more">Read</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </article>
+    </div>
+
+    <div class="blog-cta">
+      <a href="#" class="btn btn-outline" data-i18n="blog-cta">Visit the journal <span class="arrow">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIAL ================= -->
+<section class="block testi">
+  <div class="wrap">
+    <div class="testi-card reveal">
+      <div class="stars" aria-label="Five stars">★★★★★</div>
+      <blockquote data-i18n="testi-quote">&ldquo;We came in certain it was over. Waymark marked the way back to each other when we couldn't see two feet ahead. Today we're married, walking with God, and serving Him together.&rdquo;</blockquote>
+      <div class="who">Daniel &amp; Silvia Cervantes</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta" id="contact">
+  <div class="wrap">
+    <span class="eyebrow center" data-i18n="cta-eyebrow">Wherever you are</span>
+    <h2 data-i18n="cta-h2">There is a way back. Let us help you find it.</h2>
+    <p data-i18n="cta-p">Begin with a single, no-pressure conversation. Tell us where you are, and we'll help you find the next marker on the path.</p>
+    <div class="hero-cta">
+      <a href="tel:14058228300" class="btn btn-gold" data-i18n="cta-call">Call (405) 822-8300 <span class="arrow">→</span></a>
+      <a href="#services" class="btn btn-outline" data-i18n="cta-explore">Explore coaching</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="foot-lock">
+          <img class="foot-emblem" src="assets/waymark-emblem.png" alt="Waymark Inc." />
+          <div class="foot-word">
+            <div class="fb-name">WAYMARK</div>
+            <div class="fb-tag" data-i18n="foot-tag">Marking the way back</div>
+          </div>
+        </div>
+        <p data-i18n="foot-brand-p">Helping couples and individuals find the path home — through coaching and guidance rooted in five decades of relationship restoration. Continuing the legacy of Dr. Jim Talley.</p>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="foot-explore-h">Explore</h4>
+        <a href="#about" data-i18n="nav-about">Our Story</a>
+        <a href="#services" data-i18n="nav-coaching">Coaching</a>
+        <a href="#training" data-i18n="nav-training">Training</a>
+        <a href="#books" data-i18n="nav-resources">Resources</a>
+        <a href="#blog" data-i18n="nav-blog">Blog</a>
+        <a href="#contact" data-i18n="foot-contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="foot-coach-h">Coaching</h4>
+        <a href="#services" data-i18n="svc1-h">Couples Coaching</a>
+        <a href="#services" data-i18n="svc2-h">Marriage Restoration</a>
+        <a href="#services" data-i18n="svc3-h">Spiritual Direction</a>
+        <a href="#services" data-i18n="svc6-h">Premarital Guidance</a>
+      </div>
+      <div class="foot-col">
+        <h4 data-i18n="foot-connect-h">Connect</h4>
+        <a href="tel:14058228300" class="li">(405) 822-8300</a>
+        <a href="mailto:coaching@waymark.com" class="li">coaching@waymark.com</a>
+        <span class="li">Oklahoma City, OK</span>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year"></span> Waymark Inc. <span data-i18n="foot-rights">All rights reserved. · In loving memory of Dr. Jim Talley.</span></span>
+      <div class="socials">
+        <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3 1-3 3v2H9v3h2v6h3v-6h2.5l.5-3H14V9z"/></svg></a>
+        <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor"/></svg></a>
+        <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 8s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-.9C16.4 5 12 5 12 5s-4.4 0-7.2.2c-.4 0-1.3 0-2 .9C2.2 6.6 2 8 2 8s-.2 1.6-.2 3.3v1.4C1.8 14.4 2 16 2 16s.2 1.4.8 2c.7.8 1.7.8 2.2.9C6.6 19 12 19 12 19s4.4 0 7.2-.2c.4 0 1.3 0 2-.9.6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.4C22.2 9.6 22 8 22 8zM10 14.5v-5l4.5 2.5-4.5 2.5z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // ---------- Language (EN / ES) ----------
+  var ES = {
+    'nav-about':'Nuestra Historia',
+    'nav-coaching':'Coaching',
+    'nav-resources':'Recursos',
+    'nav-training':'Formación',
+    'nav-blog':'Blog',
+    'nav-cta':'Comienza el camino <span class="arrow">→</span>',
+    'nav-cta-m':'Comienza el camino',
+
+    'hero-eyebrow':'Marcando el camino de regreso',
+    'hero-h1':'Marcando el <span class="accent">camino de regreso</span> a la vida para la que fuiste creado.',
+    'hero-lead':'Durante más de cinco décadas hemos caminado junto a parejas y personas a través de las temporadas más difíciles del amor y de la vida, ayudándoles a encontrar el camino a casa. Dondequiera que estés, hay un camino de regreso.',
+    'hero-cta1':'Descubre el coaching <span class="arrow">→</span>',
+    'hero-cta2':'Habla con un guía',
+    'hero-proof':'Caminando junto a las parejas en el regreso hacia el otro.',
+    'badge-t':'Ningún matrimonio',
+    'badge-s':'es irreparable',
+    'hero-quote':'Sanar no es un momento. Es una dirección: un paso honesto a la vez.',
+
+    'legacy1':'Años de coaching para relaciones',
+    'legacy2':'Convicción que lo guía todo',
+
+    'about-seal':'Est.<br/>Marcando el<br/>camino de regreso',
+    'about-eyebrow':'¿Qué es un waymark?',
+    'about-h2':'Una señal, clavada en la tierra, que dice: el camino sigue aquí.',
+    'about-p1':'Un waymark es una señal colocada a lo largo de un sendero —una piedra, un poste, una marca pintada— dejada por quienes caminaron antes para que nadie que los siga pierda el rumbo. Cuando el camino se cubre de maleza y baja la niebla, un waymark le recuerda al viajero cansado que no está perdido. Solo está entre una señal y la siguiente.',
+    'about-pullout':'Eso es lo que hacemos. Marcamos el camino de regreso: a tu matrimonio, a tu familia, a tu fe, a ti mismo.',
+    'about-p2':'Waymark es el siguiente capítulo de la obra de toda una vida del <strong>Dr. Jim Talley</strong>, cuyo acompañamiento ayudó a incontables parejas a pasar del borde de la separación a relaciones restauradas y duraderas. Continuamos esa obra con la misma convicción que la sostuvo: que la sanación es posible, que los límites son un acto de amor, y que ninguna relación está jamás verdaderamente más allá de toda reparación.',
+    'about-nm':'El equipo de Waymark',
+    'about-rl':'Continuando la obra',
+
+    'svc-eyebrow':'Acompañamiento personalizado',
+    'svc-h2':'Coaching y dirección espiritual',
+    'svc-sub':'Para cuando prefieres caminar acompañado en lugar de caminar solo. Confidencial, compasivo y respaldado por décadas de experiencia.',
+    'svc1-h':'Coaching para parejas',
+    'svc1-p':'Sesiones estructuradas para parejas en crisis, que reconstruyen tras una traición o que simplemente desean acercarse más. Te encontramos donde estás.',
+    'svc2-h':'Restauración matrimonial',
+    'svc2-p':'Un camino intensivo y guiado para matrimonios al borde de la ruptura: pasos comprobados que llevan a las parejas de la separación de regreso a un pacto duradero.',
+    'svc3-h':'Dirección espiritual',
+    'svc3-p':'Acompañamiento centrado en la fe para las preguntas más profundas: propósito, perdón, identidad y el regreso a la paz.',
+    'svc4-h':'Coaching de límites',
+    'svc4-p':'Apoyo personalizado para establecer límites sanos —en el matrimonio, la familia y la amistad— sin culpa y sin perder la conexión.',
+    'svc5-h':'Consultas telefónicas',
+    'svc5-p':'Conversaciones directas y privadas cuando necesitas un consejo sabio con prontitud. Llama al <strong>(405) 822-8300</strong> para comenzar.',
+    'svc6-h':'Orientación prematrimonial',
+    'svc6-p':'Comienza en el orden correcto. Una preparación que ayuda a las parejas a construir intimidad sobre un cimiento lo suficientemente firme para toda la vida.',
+
+    'appr-eyebrow':'Cómo funciona',
+    'appr-h2':'Tres pasos, una dirección honesta',
+    'step1-h':'Encuentra tu base',
+    'step1-p':'Comienza con una conversación. Escuchamos, evaluamos dónde estás y definimos el siguiente paso honesto, sin presión y sin juicios.',
+    'step2-h':'Recorre el camino',
+    'step2-p':'A través del coaching personalizado, sigues un marco claro y comprobado —una señal a la vez— con acompañamiento siempre que lo necesites.',
+    'step3-h':'Llega restaurado',
+    'step3-p':'Confianza reconstruida, límites más sanos y una relación firme para perdurar. Y las herramientas para ayudar a marcar el camino a alguien más.',
+
+    'train-eyebrow':'Para coaches y líderes',
+    'train-h2':'Formación y certificación',
+    'train-sub':'Equípate para acompañar a otros de regreso a la plenitud: el método Talley, estructurado para pastores, coaches y líderes que desean generar un impacto duradero.',
+    'train1-h':'Plan de estudios certificado',
+    'train1-p':'Un marco estructurado y comprobado que puedes llevar a tu propio ministerio o práctica, y enseñar con confianza.',
+    'train2-h':'Grupos con mentoría',
+    'train2-p':'Aprende junto a otros líderes, con la guía directa de coaches experimentados que han recorrido este camino.',
+    'train3-h':'Herramientas reales',
+    'train3-p':'Recursos prácticos para las conversaciones más difíciles que las parejas a tu cuidado traerán a ti.',
+    'train-cta':'Solicita la formación <span class="arrow">→</span>',
+
+    'blog-eyebrow':'Del diario',
+    'blog-h2':'Reflexiones para el camino',
+    'blog-sub':'Aliento, guía práctica e historias de restauración: nuevas reflexiones sobre el amor, la fe y el regreso a casa.',
+    'post1-cat':'Matrimonio',
+    'post1-h':'La primera conversación honesta después de una traición',
+    'post1-p':'Por dónde empezar cuando la confianza se ha roto, y cómo las primeras palabras pueden profundizar la herida o iniciar la sanación.',
+    'post2-cat':'Límites',
+    'post2-h':'Por qué los límites de amor no son muros',
+    'post2-p':'Los límites no son la forma de alejar a los demás. Son la forma de permanecer cerca sin perdernos a nosotros mismos.',
+    'post3-cat':'Fe',
+    'post3-h':'Hallar esperanza cuando el camino parece perdido',
+    'post3-p':'Algunas temporadas se sienten como niebla sin señales. Así puedes dar el siguiente paso honesto cuando no ves todo el camino.',
+    'read-more':'Leer',
+    'blog-cta':'Visita el diario <span class="arrow">→</span>',
+
+    'books-eyebrow':'De la biblioteca',
+    'books-h2':'Libros y recursos',
+    'books-sub':'Los escritos que han guiado a las parejas durante una generación, ahora parte de la colección Waymark.',
+    'book1-pub':'Edición Digital',
+    'book1-bs':'En la Era Digital',
+    'book2-pub':'Sobre la reconciliación',
+    'book2-bs':'Reconstruyendo la confianza rota',
+    'book3-pub':'Sobre el conflicto',
+    'book3-bs':'Enfrentando el conflicto con valor',
+    'book4-bs':'Diferencias reconciliables, en español',
+
+    'testi-quote':'«Llegamos convencidos de que todo había terminado. Waymark marcó el camino de regreso el uno al otro cuando no podíamos ver ni un paso adelante. Hoy estamos casados, caminando con Dios y sirviéndole juntos.»',
+
+    'cta-eyebrow':'Dondequiera que estés',
+    'cta-h2':'Hay un camino de regreso. Permítenos ayudarte a encontrarlo.',
+    'cta-p':'Comienza con una sola conversación, sin compromiso. Cuéntanos dónde estás y te ayudaremos a encontrar la siguiente señal en el camino.',
+    'cta-call':'Llama al (405) 822-8300 <span class="arrow">→</span>',
+    'cta-explore':'Descubre el coaching',
+
+    'foot-tag':'Marcando el camino de regreso',
+    'foot-brand-p':'Ayudando a parejas y personas a encontrar el camino a casa, a través del coaching y el acompañamiento arraigados en cinco décadas de restauración de relaciones. Continuando el legado del Dr. Jim Talley.',
+    'foot-explore-h':'Explorar',
+    'foot-contact':'Contacto',
+    'foot-coach-h':'Coaching',
+    'foot-connect-h':'Comunícate',
+    'foot-rights':'Todos los derechos reservados. · En memoria del Dr. Jim Talley.'
+  };
+
+  var nodes = document.querySelectorAll('[data-i18n]');
+  nodes.forEach(function (el) { el.setAttribute('data-en', el.innerHTML); });
+  var toggles = document.querySelectorAll('.lang-toggle button');
+
+  function setYear() { var y = document.getElementById('year'); if (y) { y.textContent = new Date().getFullYear(); } }
+
+  function applyLang(lang) {
+    nodes.forEach(function (el) {
+      var k = el.getAttribute('data-i18n');
+      var v = (lang === 'es' && ES[k] != null) ? ES[k] : el.getAttribute('data-en');
+      if (el.innerHTML !== v) { el.innerHTML = v; }
+    });
+    document.documentElement.lang = lang;
+    toggles.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-lang') === lang); });
+    try { localStorage.setItem('wm-lang', lang); } catch (e) {}
+    setYear();
+  }
+
+  toggles.forEach(function (b) {
+    b.addEventListener('click', function () { applyLang(b.getAttribute('data-lang')); });
+  });
+
+  var saved = 'en';
+  try { saved = localStorage.getItem('wm-lang') || 'en'; } catch (e) {}
+  applyLang(saved);
+
+  // ---------- Header scroll state ----------
+  var header = document.getElementById('header');
+  var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 24); };
+  onScroll(); window.addEventListener('scroll', onScroll, { passive: true });
+
+  // ---------- Mobile menu ----------
+  var menuBtn = document.getElementById('menuBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', function () { mobileMenu.classList.toggle('open'); });
+  mobileMenu.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', function () { mobileMenu.classList.remove('open'); });
+  });
+
+  // ---------- Scroll reveal ----------
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+  document.querySelectorAll('.reveal').forEach(function (el, i) {
+    el.style.transitionDelay = ((i % 4) * 80) + 'ms';
+    io.observe(el);
+  });
+})();
+</script>
+</body>
+</html>
