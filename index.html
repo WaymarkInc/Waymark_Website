@@ -329,6 +329,11 @@
   .post .read svg { width: 15px; height: 15px; transition: transform .25s ease; }
   .post:hover .read svg { transform: translateX(4px); }
   .blog .blog-cta { text-align: center; }
+  .blog-soon { max-width: 600px; margin: 50px auto 0; text-align: center; background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 54px 44px; box-shadow: var(--shadow-sm); }
+  .blog-soon .soon-ic { width: 62px; height: 62px; border-radius: 50%; background: var(--sand); display: grid; place-items: center; color: var(--gold-deep); margin: 0 auto 22px; }
+  .blog-soon .soon-ic svg { width: 30px; height: 30px; }
+  .blog-soon h3 { font-size: 30px; margin-bottom: 12px; }
+  .blog-soon p { color: var(--muted); max-width: 440px; margin: 0 auto 26px; }
 
   /* ---------- CTA band ---------- */
   .cta {
@@ -665,35 +670,11 @@
       <p data-i18n="blog-sub">Encouragement, practical guidance, and stories of restoration — new reflections on love, faith, and finding the way back.</p>
     </div>
 
-    <div class="blog-grid">
-      <article class="post reveal">
-        <div class="thumb t1"><span class="cat" data-i18n="post1-cat">Marriage</span></div>
-        <div class="body">
-          <h3 data-i18n="post1-h">The first honest conversation after betrayal</h3>
-          <p data-i18n="post1-p">Where to begin when trust is broken — and how the first words can either deepen the wound or start the healing.</p>
-          <a href="#" class="read"><span data-i18n="read-more">Read</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
-      <article class="post reveal">
-        <div class="thumb t2"><span class="cat" data-i18n="post2-cat">Boundaries</span></div>
-        <div class="body">
-          <h3 data-i18n="post2-h">Why loving limits aren't walls</h3>
-          <p data-i18n="post2-p">Boundaries are not how we push people away. They're how we stay close without losing ourselves.</p>
-          <a href="#" class="read"><span data-i18n="read-more">Read</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
-      <article class="post reveal">
-        <div class="thumb t3"><span class="cat" data-i18n="post3-cat">Faith</span></div>
-        <div class="body">
-          <h3 data-i18n="post3-h">Finding hope when the way feels lost</h3>
-          <p data-i18n="post3-p">Some seasons feel like fog with no markers. Here is how to take the next honest step when you can't see the whole path.</p>
-          <a href="#" class="read"><span data-i18n="read-more">Read</span> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        </div>
-      </article>
-    </div>
-
-    <div class="blog-cta">
-      <a href="#" class="btn btn-outline" data-i18n="blog-cta">Visit the journal <span class="arrow">→</span></a>
+    <div class="blog-soon reveal">
+      <div class="soon-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 4C14 4 7 7 5 14l-2 7 7-2c7-2 10-9 10-15z"/><path d="M5 19l8-8"/></svg></div>
+      <h3 data-i18n="blog-soon-h">Coming soon</h3>
+      <p data-i18n="blog-soon-p">We're preparing reflections on love, faith, and finding the way back. The journal opens soon — check back before long.</p>
+      <a href="#contact" class="btn btn-outline" data-i18n="blog-soon-cta">Get in touch <span class="arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -872,6 +853,9 @@
     'post3-p':'Algunas temporadas se sienten como niebla sin señales. Así puedes dar el siguiente paso honesto cuando no ves todo el camino.',
     'read-more':'Leer',
     'blog-cta':'Visita el diario <span class="arrow">→</span>',
+    'blog-soon-h':'Próximamente',
+    'blog-soon-p':'Estamos preparando reflexiones sobre el amor, la fe y el regreso a casa. El diario abrirá pronto; vuelve dentro de poco.',
+    'blog-soon-cta':'Escríbenos <span class="arrow">→</span>',
 
     'books-eyebrow':'De la biblioteca',
     'books-h2':'Libros y recursos',
