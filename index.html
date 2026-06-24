@@ -299,13 +299,18 @@
 
   /* ---------- Testimonial ---------- */
   .testi { background: var(--cream-deep); }
-  .testi-card {
-    max-width: 880px; margin: 0 auto; text-align: center; background: #fff; border-radius: 24px;
-    padding: 64px 60px; box-shadow: var(--shadow-md); border: 1px solid var(--line); position: relative;
-  }
-  .testi-card .stars { color: var(--gold); letter-spacing: 4px; font-size: 18px; margin-bottom: 20px; }
-  .testi-card blockquote { font-family: var(--serif); font-size: clamp(25px, 3.3vw, 36px); line-height: 1.35; color: var(--ink); font-style: italic; }
-  .testi-card .who { margin-top: 28px; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-deep); font-weight: 500; }
+  .testi-grid { display: grid; grid-template-columns: 1.12fr 1fr; gap: 26px; align-items: start; max-width: 1040px; margin: 54px auto 0; }
+  .testi-col { display: flex; flex-direction: column; gap: 26px; }
+  .testi-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 34px 36px; box-shadow: var(--shadow-sm); transition: transform .35s ease, box-shadow .35s ease; }
+  .testi-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+  .testi-card .stars { color: var(--gold); letter-spacing: 3px; font-size: 15px; margin-bottom: 16px; }
+  .testi-card blockquote { font-family: var(--serif); font-size: 19px; line-height: 1.5; color: var(--ink); font-style: italic; }
+  .testi-card.feature blockquote { font-size: 20px; }
+  .testi-card blockquote p { margin: 0 0 14px; }
+  .testi-card blockquote p:last-child { margin-bottom: 0; }
+  .testi-card .who { margin-top: 22px; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold-deep); font-weight: 500; }
+  .testi-card .who .role { display: block; margin-top: 5px; font-size: 12px; letter-spacing: 0.03em; text-transform: none; color: var(--muted); font-weight: 400; }
+  @media (max-width: 860px) { .testi-grid { grid-template-columns: 1fr; } }
 
   /* ---------- Blog / journal ---------- */
   .blog { background: var(--cream); }
@@ -696,10 +701,28 @@
 <!-- ================= TESTIMONIAL ================= -->
 <section class="block testi">
   <div class="wrap">
-    <div class="testi-card reveal">
-      <div class="stars" aria-label="Five stars">★★★★★</div>
-      <blockquote data-i18n="testi-quote">&ldquo;We came in certain it was over. Waymark marked the way back to each other when we couldn't see two feet ahead. Today we're married, walking with God, and serving Him together.&rdquo;</blockquote>
-      <div class="who">Daniel &amp; Silvia Cervantes</div>
+    <div class="sec-head center reveal">
+      <span class="eyebrow center" data-i18n="testi-eyebrow">Stories of restoration</span>
+      <h2 data-i18n="testi-h2">From those who found the way back</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card feature reveal">
+        <div class="stars" aria-label="Five stars">★★★★★</div>
+        <blockquote data-i18n="testi2-quote"><p>&ldquo;Going through a divorce is one of the hardest things a person can experience. I found myself completely lost, not knowing who I was anymore or what direction my life was supposed to take. Waymark came at exactly the right time.</p><p>This program didn't just give me tools, it gave me a path when I couldn't see one. It helped me make sense of the pain, the confusion, and the uncertainty that comes with rebuilding your life after everything falls apart.</p><p>Jose was a significant part of my experience. His guidance was genuine and his support was consistent. He helped me find a way to function again during a time when just getting through the day felt like an accomplishment. He met me where I was and helped me find my footing without judgment.</p><p>I'm in a better place today and this program was part of that journey. If you're going through a divorce and feel like you're drowning, I would highly recommend Waymark. You don't have to figure it out alone.&rdquo;</p></blockquote>
+        <div class="who">Gabriel Sandoval<span class="role" data-i18n="testi2-role">Rebuilding after divorce</span></div>
+      </div>
+      <div class="testi-col">
+        <div class="testi-card reveal">
+          <div class="stars" aria-label="Five stars">★★★★★</div>
+          <blockquote data-i18n="testi-quote">&ldquo;We came in certain it was over. Waymark marked the way back to each other when we couldn't see two feet ahead. Today we're married, walking with God, and serving Him together.&rdquo;</blockquote>
+          <div class="who">Daniel &amp; Silvia Cervantes<span class="role" data-i18n="testi1-role">Restored &amp; remarried</span></div>
+        </div>
+        <div class="testi-card reveal">
+          <div class="stars" aria-label="Five stars">★★★★★</div>
+          <blockquote data-i18n="testi3-quote">&ldquo;I came to Waymark carrying years of resentment I didn't even know how to name. The coaching helped me see my marriage — and myself — with honest eyes for the first time. We're not the same couple who walked in, and I'm grateful every day we didn't give up.&rdquo;</blockquote>
+          <div class="who">Ruth Bailey<span class="role" data-i18n="testi3-role">Found her way back</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -861,7 +884,14 @@
     'book3-bs':'Enfrentando el conflicto con valor',
     'book4-bs':'Diferencias reconciliables, en español',
 
+    'testi-eyebrow':'Historias de restauración',
+    'testi-h2':'De quienes encontraron el camino de regreso',
     'testi-quote':'«Llegamos convencidos de que todo había terminado. Waymark marcó el camino de regreso el uno al otro cuando no podíamos ver ni un paso adelante. Hoy estamos casados, caminando con Dios y sirviéndole juntos.»',
+    'testi1-role':'Restaurados y casados de nuevo',
+    'testi2-quote':'<p>«Pasar por un divorcio es una de las cosas más difíciles que una persona puede experimentar. Me encontré completamente perdido, sin saber ya quién era ni qué dirección se suponía que debía tomar mi vida. Waymark llegó justo en el momento preciso.</p><p>Este programa no solo me dio herramientas, me dio un camino cuando no podía ver ninguno. Me ayudó a darle sentido al dolor, la confusión y la incertidumbre que vienen con reconstruir tu vida después de que todo se derrumba.</p><p>José fue una parte significativa de mi experiencia. Su acompañamiento fue genuino y su apoyo, constante. Me ayudó a volver a funcionar en un momento en que solo pasar el día ya se sentía como un logro. Me encontró donde estaba y me ayudó a recuperar el equilibrio sin juzgarme.</p><p>Hoy estoy en un lugar mejor, y este programa fue parte de ese camino. Si estás pasando por un divorcio y sientes que te estás ahogando, recomendaría Waymark sin dudarlo. No tienes que resolverlo solo.»</p>',
+    'testi2-role':'Reconstruyendo tras el divorcio',
+    'testi3-quote':'«Llegué a Waymark cargando años de resentimiento que ni siquiera sabía nombrar. El coaching me ayudó a ver mi matrimonio —y a mí misma— con ojos honestos por primera vez. No somos la misma pareja que entró, y agradezco cada día que no nos rindiéramos.»',
+    'testi3-role':'Encontró su camino de regreso',
 
     'cta-eyebrow':'Dondequiera que estés',
     'cta-h2':'Hay un camino de regreso. Permítenos ayudarte a encontrarlo.',
