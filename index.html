@@ -279,12 +279,8 @@
   .books { background: linear-gradient(180deg, var(--cream), var(--cream-deep)); }
   .book-grid { display: grid; grid-template-columns: repeat(auto-fit, 148px); justify-content: center; gap: 26px 30px; margin-top: 48px; }
   .book { text-align: center; }
-  .book .cover {
-    aspect-ratio: 3/4.2; border-radius: 6px 9px 9px 6px; box-shadow: var(--shadow-md);
-    display: flex; flex-direction: column; justify-content: space-between; padding: 16px 14px;
-    position: relative; overflow: hidden; transition: transform .35s ease, box-shadow .35s ease;
-    border-left: 4px solid rgba(0,0,0,0.18);
-  }
+  .book .cover { border-radius: 5px; overflow: hidden; box-shadow: var(--shadow-md); line-height: 0; transition: transform .35s ease, box-shadow .35s ease; background: #fff; }
+  .book .cover img { width: 100%; height: auto; display: block; }
   .book:hover .cover { transform: translateY(-7px) rotate(-1deg); box-shadow: var(--shadow-lg); }
   .book .cover.c1 { background: linear-gradient(165deg, #20335a, #131f3a); }
   .book .cover.c2 { background: linear-gradient(165deg, #b88a3c, #846326); }
@@ -666,19 +662,19 @@
     </div>
     <div class="book-grid">
       <a class="book reveal" href="https://www.amazon.com/dp/B0FYVDS2BS?tag=onamzdrtalley-20" target="_blank" rel="noopener noreferrer">
-        <div class="cover c1"><span class="pub" data-i18n="book1-pub">Digital Edition</span><div><div class="bt">Too Close, Too Soon</div><div class="bd"></div></div></div>
+        <div class="cover"><img src="assets/covers/B0FYVDS2BS.jpg" alt="Too Close, Too Soon book cover" loading="lazy" /></div>
         <div class="label"><div class="bn">Too Close, Too Soon</div><div class="bs" data-i18n="book1-bs">In the Digital Age</div></div>
       </a>
       <a class="book reveal" href="https://www.amazon.com/dp/0785296875?tag=onamzdrtalley-20" target="_blank" rel="noopener noreferrer">
-        <div class="cover c4"><span class="pub" data-i18n="book2-pub">On reconciliation</span><div><div class="bt">Reconcilable Differences</div><div class="bd"></div></div></div>
+        <div class="cover"><img src="assets/covers/0785296875.jpg" alt="Reconcilable Differences book cover" loading="lazy" /></div>
         <div class="label"><div class="bn">Reconcilable Differences</div><div class="bs" data-i18n="book2-bs">Rebuilding broken trust</div></div>
       </a>
       <a class="book reveal" href="https://www.amazon.com/dp/1979543100?tag=onamzdrtalley-20" target="_blank" rel="noopener noreferrer">
-        <div class="cover c3"><span class="pub" data-i18n="book3-pub">On conflict</span><div><div class="bt">Fight or Flight</div><div class="bd"></div></div></div>
+        <div class="cover"><img src="assets/covers/1979543100.jpg" alt="Fight or Flight book cover" loading="lazy" /></div>
         <div class="label"><div class="bn">Fight or Flight</div><div class="bs" data-i18n="book3-bs">Facing conflict with courage</div></div>
       </a>
       <a class="book reveal" href="https://www.amazon.com/dp/1724597833?tag=onamzdrtalley-20" target="_blank" rel="noopener noreferrer">
-        <div class="cover c2"><span class="pub">Edición en Español</span><div><div class="bt">Diferencias Reconciliables</div><div class="bd"></div></div></div>
+        <div class="cover"><img src="assets/covers/1724597833.jpg" alt="Diferencias Reconciliables book cover" loading="lazy" /></div>
         <div class="label"><div class="bn">Diferencias Reconciliables</div><div class="bs" data-i18n="book4-bs">Reconcilable Differences en español</div></div>
       </a>
     </div>
@@ -691,12 +687,16 @@
       </div>
       <div class="book-grid">
         <a class="book" href="https://www.amazon.com/dp/B006X50SLM?tag=onamzdrtalley-20" target="_blank" rel="noopener noreferrer">
-          <div class="cover c4"><span class="pub">Robert McGee</span><div><div class="bt">The Search for Significance</div><div class="bd"></div></div></div>
+          <div class="cover"><img src="assets/covers/B006X50SLM.jpg" alt="The Search for Significance book cover" loading="lazy" /></div>
           <div class="label"><div class="bn">The Search for Significance</div><div class="bs" data-i18n="rec1-bs">Seeing your worth through God's eyes</div></div>
         </a>
         <a class="book" href="https://www.amazon.com/dp/1517755417?tag=onamzdrtalley-20" target="_blank" rel="noopener noreferrer">
-          <div class="cover c2"><span class="pub">Edición en Español</span><div><div class="bt">La Búsqueda de Significado</div><div class="bd"></div></div></div>
+          <div class="cover"><img src="assets/covers/1517755417.jpg" alt="La Búsqueda de Significado book cover" loading="lazy" /></div>
           <div class="label"><div class="bn">La Búsqueda de Significado</div><div class="bs" data-i18n="rec2-bs">Spanish edition</div></div>
+        </a>
+        <a class="book" href="https://www.amazon.com/dp/B0CKPR5S2M?tag=onamzdrtalley-20" target="_blank" rel="noopener noreferrer">
+          <div class="cover"><img src="assets/covers/B0CKPR5S2M.jpg" alt="Comunicación Familiar book cover" loading="lazy" /></div>
+          <div class="label"><div class="bn">Comunicación Familiar</div><div class="bs" data-i18n="rec3-bs">Skills for healthy family communication</div></div>
         </a>
       </div>
     </div>
@@ -960,6 +960,7 @@
     'rec-sub':'Libros, más allá de los nuestros, que recomendamos para el camino.',
     'rec1-bs':'Descubre tu valor a través de los ojos de Dios',
     'rec2-bs':'Edición en español',
+    'rec3-bs':'Habilidades para una comunicación familiar sana',
 
     'testi-eyebrow':'Historias de restauración',
     'testi-h2':'De quienes encontraron el camino de regreso',
