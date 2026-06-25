@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Waymark — Marking the Way Back</title>
 <meta name="description" content="Waymark helps couples and individuals find the way back to wholeness — through coaching, spiritual direction, and guidance rooted in five decades of relationship restoration." />
-<link rel="icon" type="image/png" href="assets/waymark-icon.png" />
+<link rel="icon" type="image/svg+xml" href="assets/waymark_icon.svg" />
 <link rel="apple-touch-icon" href="assets/waymark-icon.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -14,25 +14,25 @@
 
 <style>
   :root {
-    --cream:      #FBF8F1;
-    --cream-deep: #F3ECDD;
-    --sand:       #EFE6D2;
-    --ink:        #16223F;
-    --ink-soft:   #3C4458;
-    --muted:      #5E6473;
-    --navy:       #1C2C4C;
-    --navy-deep:  #121E38;
-    --forest:     #1C2C4C;
-    --forest-deep:#121E38;
-    --sage:       #8893A6;
-    --sage-soft:  #E4E8F1;
-    --gold:       #C19A4B;
-    --gold-deep:  #A47C2C;
-    --gold-light: #E6D3A0;
-    --line:       rgba(22,34,63,0.11);
-    --shadow-sm:  0 2px 20px rgba(18,28,54,0.07);
-    --shadow-md:  0 18px 50px rgba(18,28,54,0.12);
-    --shadow-lg:  0 30px 80px rgba(18,28,54,0.16);
+    --cream:      #F7F4EE;
+    --cream-deep: #EFEAE0;
+    --sand:       #ECE3CF;
+    --ink:        #102A43;
+    --ink-soft:   #38465A;
+    --muted:      #5B6470;
+    --navy:       #102A43;
+    --navy-deep:  #0B1E32;
+    --forest:     #102A43;
+    --forest-deep:#0B1E32;
+    --sage:       #8FA58B;
+    --sage-soft:  #E4EADF;
+    --gold:       #C8A45D;
+    --gold-deep:  #8A6C29;
+    --gold-light: #E3CB95;
+    --line:       rgba(16,42,67,0.12);
+    --shadow-sm:  0 2px 20px rgba(16,30,52,0.07);
+    --shadow-md:  0 18px 50px rgba(16,30,52,0.12);
+    --shadow-lg:  0 30px 80px rgba(16,30,52,0.16);
     --serif: 'Cormorant Garamond', Georgia, serif;
     --sans:  'Montserrat', system-ui, sans-serif;
     --maxw:  1180px;
@@ -94,8 +94,8 @@
   }
   .btn .arrow { transition: transform .25s ease; }
   .btn:hover .arrow { transform: translateX(4px); }
-  .btn-gold { background: var(--gold); color: #fff; box-shadow: 0 10px 30px rgba(164,124,44,0.28); }
-  .btn-gold:hover { background: var(--gold-deep); box-shadow: 0 14px 36px rgba(164,124,44,0.34); }
+  .btn-gold { background: var(--gold); color: #fff; box-shadow: 0 10px 30px rgba(138,108,41,0.28); }
+  .btn-gold:hover { background: var(--gold-deep); box-shadow: 0 14px 36px rgba(138,108,41,0.34); }
   .btn-outline { background: transparent; color: var(--navy); border-color: rgba(28,44,76,0.32); }
   .btn-outline:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
   .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
@@ -111,14 +111,14 @@
     background: rgba(251,248,241,0.86);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-    box-shadow: 0 1px 0 rgba(18,28,54,0.05);
+    box-shadow: 0 1px 0 rgba(16,30,52,0.05);
     border-bottom: 1px solid var(--line);
   }
   .nav { display: flex; align-items: center; justify-content: space-between; height: 92px; transition: height .4s ease; }
   header.scrolled .nav { height: 74px; }
   .brand { display: flex; align-items: center; gap: 13px; }
-  .brand-emblem { height: 54px; width: 54px; flex: none; transition: height .4s ease, width .4s ease; }
-  header.scrolled .brand-emblem { height: 45px; width: 45px; }
+  .brand-emblem { height: 52px; width: auto; flex: none; transition: height .4s ease; }
+  header.scrolled .brand-emblem { height: 43px; }
   .brand-word { display: flex; flex-direction: column; line-height: 1; }
   .brand-word .name { font-family: var(--serif); font-size: 27px; font-weight: 600; letter-spacing: 0.17em; color: var(--ink); }
   .brand-word .tag { font-family: var(--sans); font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
@@ -161,8 +161,8 @@
   .hero {
     position: relative; padding: 178px 0 110px;
     background:
-      radial-gradient(1100px 620px at 78% -8%, rgba(230,211,160,0.45), transparent 60%),
-      radial-gradient(900px 560px at 6% 108%, rgba(206,215,234,0.55), transparent 58%),
+      radial-gradient(1100px 620px at 78% -8%, rgba(227,203,149,0.45), transparent 60%),
+      radial-gradient(900px 560px at 6% 108%, rgba(143,165,139,0.55), transparent 58%),
       linear-gradient(180deg, var(--cream) 0%, var(--cream-deep) 100%);
     overflow: hidden;
   }
@@ -184,12 +184,12 @@
   }
   .hero-card .photo {
     border-radius: 14px; height: 540px;
-    background: linear-gradient(160deg, #26375a, #14213d);
+    background: linear-gradient(160deg, #102A43, #0B1E32);
     position: relative; overflow: hidden; display: flex; align-items: flex-end;
   }
   .hero-card .photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .hero-card .photo .scrim { position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(to top, rgba(11,18,36,0.88) 0%, rgba(11,18,36,0.32) 42%, rgba(11,18,36,0) 68%); }
+    background: linear-gradient(to top, rgba(8,20,34,0.88) 0%, rgba(8,20,34,0.32) 42%, rgba(8,20,34,0) 68%); }
   .hero-card .photo .quote { position: relative; z-index: 2; padding: 34px; }
   .hero-card .photo .quote p { font-family: var(--serif); font-style: italic; font-size: 25px; line-height: 1.3; color: #fff; max-width: 320px; }
   .hero-card .photo .quote .q-mark { font-family: var(--serif); font-size: 80px; line-height: 0; color: var(--gold-light); opacity: .7; display: block; height: 34px; }
@@ -256,8 +256,8 @@
     background: rgba(251,248,241,0.05); border: 1px solid rgba(251,248,241,0.12); border-radius: 18px;
     padding: 36px 30px; transition: background .3s ease, transform .3s ease, border-color .3s ease;
   }
-  .svc:hover { background: rgba(251,248,241,0.09); transform: translateY(-5px); border-color: rgba(230,211,160,0.4); }
-  .svc .ic { width: 50px; height: 50px; border-radius: 50%; background: rgba(230,211,160,0.16); display: grid; place-items: center; color: var(--gold-light); margin-bottom: 22px; }
+  .svc:hover { background: rgba(251,248,241,0.09); transform: translateY(-5px); border-color: rgba(227,203,149,0.4); }
+  .svc .ic { width: 50px; height: 50px; border-radius: 50%; background: rgba(227,203,149,0.16); display: grid; place-items: center; color: var(--gold-light); margin-bottom: 22px; }
   .svc .ic svg { width: 24px; height: 24px; }
   .svc h3 { color: var(--cream); font-size: 24px; margin-bottom: 10px; }
   .svc p { font-size: 15.5px; color: rgba(251,248,241,0.72); font-weight: 300; }
@@ -319,10 +319,10 @@
   .post { background: #fff; border: 1px solid var(--line); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); transition: transform .35s ease, box-shadow .35s ease; display: flex; flex-direction: column; }
   .post:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
   .post .thumb { height: 158px; position: relative; }
-  .post .thumb.t1 { background: linear-gradient(160deg, #26375a, #14213d); }
+  .post .thumb.t1 { background: linear-gradient(160deg, #102A43, #0B1E32); }
   .post .thumb.t2 { background: linear-gradient(160deg, #b88a3c, #846326); }
   .post .thumb.t3 { background: linear-gradient(160deg, #2a4068, #16243f); }
-  .post .cat { position: absolute; top: 14px; left: 14px; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; background: rgba(11,18,36,0.34); padding: 6px 13px; border-radius: 100px; }
+  .post .cat { position: absolute; top: 14px; left: 14px; font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; background: rgba(8,20,34,0.34); padding: 6px 13px; border-radius: 100px; }
   .post .body { padding: 24px 26px 26px; display: flex; flex-direction: column; flex: 1; }
   .post h3 { font-size: 23px; line-height: 1.18; margin-bottom: 10px; }
   .post p { font-size: 15px; color: var(--muted); margin-bottom: 20px; }
@@ -338,7 +338,7 @@
 
   /* ---------- CTA band ---------- */
   .contact {
-    background: radial-gradient(720px 420px at 88% 0%, rgba(193,154,75,0.26), transparent 60%), var(--navy-deep);
+    background: radial-gradient(720px 420px at 88% 0%, rgba(200,164,93,0.26), transparent 60%), var(--navy-deep);
     color: var(--cream); padding: 104px 0;
   }
   .contact-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center; }
@@ -348,7 +348,7 @@
   .contact-intro p { color: rgba(251,248,241,0.8); font-size: 18px; font-weight: 300; margin: 22px 0 0; max-width: 460px; }
   .contact-details { list-style: none; margin: 32px 0 0; display: flex; flex-direction: column; gap: 15px; }
   .contact-details li { display: flex; align-items: center; gap: 14px; font-size: 16px; color: var(--cream); }
-  .contact-details .ic { width: 42px; height: 42px; border-radius: 50%; background: rgba(230,211,160,0.15); color: var(--gold-light); display: grid; place-items: center; flex: none; }
+  .contact-details .ic { width: 42px; height: 42px; border-radius: 50%; background: rgba(227,203,149,0.15); color: var(--gold-light); display: grid; place-items: center; flex: none; }
   .contact-details .ic svg { width: 20px; height: 20px; }
   .contact-details a { color: inherit; transition: color .2s ease; }
   .contact-details a:hover { color: var(--gold-light); }
@@ -358,7 +358,7 @@
   .field label { display: block; font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin-bottom: 7px; font-weight: 500; }
   .field input, .field select, .field textarea { width: 100%; font-family: var(--sans); font-size: 15px; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; transition: border-color .2s ease, box-shadow .2s ease; }
   .field input::placeholder, .field textarea::placeholder { color: #a8a69c; }
-  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(193,154,75,0.16); }
+  .field input:focus, .field select:focus, .field textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(200,164,93,0.16); }
   .field textarea { resize: vertical; min-height: 92px; }
   .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .contact-card .btn { width: 100%; justify-content: center; margin-top: 8px; }
@@ -374,7 +374,7 @@
   footer { background: var(--ink); color: rgba(251,248,241,0.7); padding: 80px 0 36px; }
   .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 44px; }
   .foot-lock { display: flex; align-items: center; gap: 13px; margin-bottom: 22px; }
-  .foot-emblem { width: 58px; height: 58px; flex: none; }
+  .foot-emblem { height: 62px; width: auto; flex: none; }
   .foot-word { display: flex; flex-direction: column; line-height: 1; }
   .foot-brand .fb-name { font-family: var(--serif); font-size: 30px; color: var(--gold-light); letter-spacing: 0.1em; }
   .foot-brand .fb-tag { font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(251,248,241,0.55); margin: 5px 0 0; }
@@ -425,7 +425,7 @@
 <header id="header">
   <div class="wrap nav">
     <a href="#top" class="brand" aria-label="Waymark home">
-      <img class="brand-emblem" src="assets/waymark-emblem.png" alt="Waymark Inc." />
+      <img class="brand-emblem" src="assets/waymark_icon.svg" alt="Waymark Inc." />
       <span class="brand-word">
         <span class="name">WAYMARK</span>
         <span class="tag">Marking the way back</span>
@@ -470,9 +470,9 @@
 <section class="hero">
   <svg class="hero-path" viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
     <path d="M-50 760 C 300 700, 360 480, 600 460 S 980 420, 1100 250 S 1300 60, 1520 30"
-          fill="none" stroke="#C19A4B" stroke-width="1.5" stroke-dasharray="2 10" opacity="0.5"/>
+          fill="none" stroke="#C8A45D" stroke-width="1.5" stroke-dasharray="2 10" opacity="0.5"/>
     <path d="M-50 800 C 360 740, 420 540, 680 520 S 1080 470, 1220 300"
-          fill="none" stroke="#8893A6" stroke-width="1" stroke-dasharray="2 12" opacity="0.45"/>
+          fill="none" stroke="#8FA58B" stroke-width="1" stroke-dasharray="2 12" opacity="0.45"/>
   </svg>
 
   <div class="wrap hero-grid">
@@ -524,10 +524,10 @@
     <div class="about-visual reveal">
       <div class="mark">
         <svg viewBox="0 0 200 200" aria-hidden="true">
-          <circle cx="100" cy="100" r="82" fill="none" stroke="#C19A4B" stroke-width="3"/>
-          <path d="M70 150 C 95 120, 70 100, 105 78 S 130 50, 112 38" fill="none" stroke="#C19A4B" stroke-width="14" stroke-linecap="round" opacity="0.85"/>
-          <path d="M70 150 C 95 120, 70 100, 105 78 S 130 50, 112 38" fill="none" stroke="#1C2C4C" stroke-width="2" stroke-dasharray="5 7" stroke-linecap="round"/>
-          <circle cx="112" cy="40" r="6" fill="#A47C2C"/>
+          <circle cx="100" cy="100" r="82" fill="none" stroke="#C8A45D" stroke-width="3"/>
+          <path d="M70 150 C 95 120, 70 100, 105 78 S 130 50, 112 38" fill="none" stroke="#C8A45D" stroke-width="14" stroke-linecap="round" opacity="0.85"/>
+          <path d="M70 150 C 95 120, 70 100, 105 78 S 130 50, 112 38" fill="none" stroke="#102A43" stroke-width="2" stroke-dasharray="5 7" stroke-linecap="round"/>
+          <circle cx="112" cy="40" r="6" fill="#8A6C29"/>
         </svg>
       </div>
       <div class="seal"><span data-i18n="about-seal">Est.<br/>Marking the<br/>way back</span></div>
@@ -815,7 +815,7 @@
     <div class="foot-grid">
       <div class="foot-brand">
         <div class="foot-lock">
-          <img class="foot-emblem" src="assets/waymark-emblem.png" alt="Waymark Inc." />
+          <img class="foot-emblem" src="assets/waymark_icon.svg" alt="Waymark Inc." />
           <div class="foot-word">
             <div class="fb-name">WAYMARK</div>
             <div class="fb-tag" data-i18n="foot-tag">Marking the way back</div>
