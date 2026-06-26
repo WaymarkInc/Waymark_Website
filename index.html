@@ -100,6 +100,9 @@
   .btn-outline:hover { background: var(--forest); color: var(--cream); border-color: var(--forest); }
   .btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
   .btn-ghost:hover { background: var(--ink); color: var(--cream); }
+  .btn-contribute { background: var(--sage); color: var(--navy); border-color: var(--sage); gap: 8px; }
+  .btn-contribute:hover { background: #7C947A; border-color: #7C947A; color: var(--navy); }
+  .btn-contribute svg { width: 16px; height: 16px; }
 
   /* ---------- Nav ---------- */
   header {
@@ -123,7 +126,7 @@
   .brand-word .name { font-family: var(--serif); font-size: 27px; font-weight: 600; letter-spacing: 0.17em; color: var(--ink); }
   .brand-word .tag { font-family: var(--sans); font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
 
-  .nav-links { display: flex; align-items: center; gap: 26px; }
+  .nav-links { display: flex; align-items: center; gap: 16px; }
   .nav-links a.navlink {
     font-size: 13.5px; font-weight: 400; letter-spacing: 0.04em; color: var(--ink-soft);
     position: relative; padding: 6px 0; transition: color .25s ease;
@@ -134,7 +137,7 @@
   }
   .nav-links a.navlink:hover { color: var(--ink); }
   .nav-links a.navlink:hover::after { width: 100%; }
-  .nav .btn { padding: 12px 24px; }
+  .nav .btn { padding: 11px 18px; font-size: 12.5px; }
 
   .lang-toggle { display: inline-flex; align-items: center; gap: 2px; border: 1px solid var(--line); border-radius: 100px; padding: 3px; }
   .lang-toggle button { font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 100px; border: none; background: transparent; color: var(--muted); cursor: pointer; transition: background .2s ease, color .2s ease; }
@@ -394,7 +397,7 @@
   @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
 
   /* ---------- Responsive ---------- */
-  @media (max-width: 1080px) {
+  @media (max-width: 1240px) {
     .nav-links { display: none; }
     .menu-btn { display: block; }
     .nav .btn.desktop-cta { display: none; }
@@ -437,6 +440,7 @@
       <a class="navlink" href="#training" data-i18n="nav-training">Training</a>
       <a class="navlink" href="#books" data-i18n="nav-resources">Resources</a>
       <a class="navlink" href="#blog" data-i18n="nav-blog">Blog</a>
+      <a class="btn btn-contribute desktop-cta" href="https://buy.stripe.com/00w9AV9ZKdcccYc4hCfMA00" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-4.35-9.5-9C1 9 2.5 5 6.5 5 9 5 12 7.5 12 7.5S15 5 17.5 5C21.5 5 23 9 21.5 12 19 16.65 12 21 12 21z"/></svg> <span data-i18n="nav-contribute">Contribute</span></a>
       <a class="btn btn-gold desktop-cta" href="#contact" data-i18n="nav-cta">Begin the journey <span class="arrow">→</span></a>
       <div class="lang-toggle" role="group" aria-label="Language">
         <button type="button" data-lang="en">EN</button>
@@ -456,6 +460,7 @@
   <a href="#training" data-i18n="nav-training">Training</a>
   <a href="#books" data-i18n="nav-resources">Resources</a>
   <a href="#blog" data-i18n="nav-blog">Blog</a>
+  <a class="btn btn-contribute" href="https://buy.stripe.com/00w9AV9ZKdcccYc4hCfMA00" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-4.35-9.5-9C1 9 2.5 5 6.5 5 9 5 12 7.5 12 7.5S15 5 17.5 5C21.5 5 23 9 21.5 12 19 16.65 12 21 12 21z"/></svg> <span data-i18n="nav-contribute">Contribute</span></a>
   <a class="btn btn-gold" href="#contact" data-i18n="nav-cta-m">Begin the journey</a>
   <div class="lang-toggle mobile" role="group" aria-label="Language">
     <button type="button" data-lang="en">EN</button>
@@ -860,6 +865,7 @@
     'nav-resources':'Recursos',
     'nav-training':'Formación',
     'nav-blog':'Blog',
+    'nav-contribute':'Contribuir',
     'nav-cta':'Comienza el camino <span class="arrow">→</span>',
     'nav-cta-m':'Comienza el camino',
 
