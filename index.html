@@ -223,11 +223,11 @@
   .about-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 70px; align-items: center; }
   .about-visual { position: relative; }
   .about-visual .mark {
-    aspect-ratio: 1; border-radius: 26px; background: linear-gradient(160deg, var(--sage-soft), #fff);
-    border: 1px solid var(--line); box-shadow: var(--shadow-md); display: grid; place-items: center;
+    aspect-ratio: 1; border-radius: 26px;
+    border: 1px solid var(--line); box-shadow: var(--shadow-md);
     position: relative; overflow: hidden;
   }
-  .about-visual .mark svg { width: 78%; height: 78%; }
+  .about-visual .mark img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .about-visual .seal {
     position: absolute; bottom: -24px; right: -24px; width: 132px; height: 132px; border-radius: 50%;
     background: var(--gold); color: #fff; display: grid; place-items: center; text-align: center;
@@ -522,12 +522,7 @@
   <div class="wrap about-grid">
     <div class="about-visual reveal">
       <div class="mark">
-        <svg viewBox="0 0 200 200" aria-hidden="true">
-          <circle cx="100" cy="100" r="82" fill="none" stroke="#C8A45D" stroke-width="3"/>
-          <path d="M70 150 C 95 120, 70 100, 105 78 S 130 50, 112 38" fill="none" stroke="#C8A45D" stroke-width="14" stroke-linecap="round" opacity="0.85"/>
-          <path d="M70 150 C 95 120, 70 100, 105 78 S 130 50, 112 38" fill="none" stroke="#102A43" stroke-width="2" stroke-dasharray="5 7" stroke-linecap="round"/>
-          <circle cx="112" cy="40" r="6" fill="#8A6C29"/>
-        </svg>
+        <img src="assets/about-mountains.jpg" alt="Golden sunrise over misty mountains" />
       </div>
       <div class="seal"><span data-i18n="about-seal">Est.<br/>Marking the<br/>way back</span></div>
     </div>
