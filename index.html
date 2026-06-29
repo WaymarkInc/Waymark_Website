@@ -148,6 +148,8 @@
 
   .menu-btn { display: none; background: none; border: none; cursor: pointer; color: var(--ink); padding: 8px; }
   .menu-btn svg { width: 26px; height: 26px; }
+  .nav-actions { display: none; align-items: center; gap: 12px; }
+  .lang-bar button { font-size: 11px; padding: 5px 9px; }
 
   .mobile-menu {
     position: fixed; inset: 0; z-index: 49; background: var(--cream);
@@ -400,6 +402,7 @@
   /* ---------- Responsive ---------- */
   @media (max-width: 1240px) {
     .nav-links { display: none; }
+    .nav-actions { display: flex; }
     .menu-btn { display: block; }
     .nav .btn.desktop-cta { display: none; }
   }
@@ -414,6 +417,10 @@
   }
   @media (max-width: 600px) {
     .wrap { padding: 0 20px; }
+    .brand-word .name { font-size: 20px; }
+    .brand-emblem { height: 46px; }
+    header.scrolled .brand-emblem { height: 40px; }
+    .nav-actions { gap: 9px; }
     .svc-grid, .steps, .blog-grid, .foot-grid { grid-template-columns: 1fr; }
     .hero { padding: 140px 0 80px; }
     .hero .lead { font-size: 18px; }
@@ -449,9 +456,15 @@
       </div>
     </nav>
 
-    <button class="menu-btn" id="menuBtn" aria-label="Open menu">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-    </button>
+    <div class="nav-actions">
+      <div class="lang-toggle lang-bar" role="group" aria-label="Language">
+        <button type="button" data-lang="en">EN</button>
+        <button type="button" data-lang="es">ES</button>
+      </div>
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
@@ -463,10 +476,6 @@
   <a href="#blog" data-i18n="nav-blog">Blog</a>
   <a class="btn btn-contribute" href="https://buy.stripe.com/00w9AV9ZKdcccYc4hCfMA00" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 21s-7-4.35-9.5-9C1 9 2.5 5 6.5 5 9 5 12 7.5 12 7.5S15 5 17.5 5C21.5 5 23 9 21.5 12 19 16.65 12 21 12 21z"/></svg> <span data-i18n="nav-contribute">Contribute</span></a>
   <a class="btn btn-gold" href="#contact" data-i18n="nav-cta-m">Begin the journey</a>
-  <div class="lang-toggle mobile" role="group" aria-label="Language">
-    <button type="button" data-lang="en">EN</button>
-    <button type="button" data-lang="es">ES</button>
-  </div>
 </div>
 
 <span id="top"></span>
