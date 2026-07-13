@@ -1187,6 +1187,22 @@
       status.style.display = 'none';
       var payload = {};
       new FormData(form).forEach(function (v, k) { payload[k] = v; });
+      // Also create a Lead in the Waymark platform (fire-and-forget; form-urlencoded
+      // avoids a CORS preflight, and we don't block the visitor on the response).
+      try {
+        var lead = new URLSearchParams();
+        lead.append('name', payload.name || '');
+        lead.append('email', payload.email || '');
+        lead.append('phone', payload.phone || '');
+        lead.append('service', payload.service || '');
+        lead.append('message', payload.message || '');
+        lead.append('_honey', payload._honey || '');
+        fetch('https://waymarkcoach.com/wp-json/lms/v1/lead', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: lead.toString()
+        }).catch(function () {});
+      } catch (e) {}
       fetch('https://formsubmit.co/ajax/coaching@waymarkinc.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
