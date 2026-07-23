@@ -23,12 +23,12 @@
 <meta name="twitter:title" content="Waymark Inc. | Christian Marriage &amp; Couples Coaching | Shawnee, OK" />
 <meta name="twitter:description" content="Faith-based couples coaching, marriage restoration &amp; spiritual direction in Shawnee, OK — and online." />
 <meta name="twitter:image" content="https://www.waymarkinc.com/assets/hero.jpg" />
-<link rel="icon" type="image/svg+xml" href="assets/waymark_icon.svg" />
+<link rel="icon" type="image/svg+xml" href="assets/waymark-symbol.svg" />
 <link rel="apple-touch-icon" href="assets/waymark-icon.png" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Urbanist:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
 
 <style>
   :root {
@@ -51,8 +51,8 @@
     --shadow-sm:  0 2px 20px rgba(16,30,52,0.07);
     --shadow-md:  0 18px 50px rgba(16,30,52,0.12);
     --shadow-lg:  0 30px 80px rgba(16,30,52,0.16);
-    --serif: 'Fraunces', Georgia, serif;
-    --sans:  'Inter', system-ui, sans-serif;
+    --serif: 'Lora', Georgia, serif;
+    --sans:  'Urbanist', system-ui, sans-serif;
     --maxw:  1180px;
   }
 
@@ -137,12 +137,15 @@
   }
   .nav { display: flex; align-items: center; justify-content: space-between; height: 92px; transition: height .4s ease; }
   header.scrolled .nav { height: 74px; }
-  .brand { display: flex; align-items: center; gap: 13px; }
-  .brand-emblem { height: 52px; width: auto; flex: none; transition: height .4s ease; }
-  header.scrolled .brand-emblem { height: 43px; }
-  .brand-word { display: flex; flex-direction: column; line-height: 1; }
-  .brand-word .name { font-family: var(--serif); font-size: 26px; font-weight: 600; letter-spacing: 0.1em; color: var(--ink); }
-  .brand-word .tag { font-family: var(--sans); font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+  .brand { display: flex; align-items: center; }
+  .brand-lockup { height: 54px; width: auto; display: block; flex: none; transition: height .4s ease; }
+  header.scrolled .brand-lockup { height: 45px; }
+  .brand-symbol { display: none; height: 46px; width: auto; flex: none; transition: height .4s ease; }
+  header.scrolled .brand-symbol { height: 40px; }
+  @media (max-width: 700px) {
+    .brand-lockup { display: none; }
+    .brand-symbol { display: block; }
+  }
 
   .nav-links { display: flex; align-items: center; gap: 12px; }
   .nav-links a.navlink {
@@ -397,11 +400,7 @@
   /* ---------- Footer ---------- */
   footer { background: var(--ink); color: rgba(251,248,241,0.7); padding: 80px 0 36px; }
   .foot-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 44px; }
-  .foot-lock { display: flex; align-items: center; gap: 13px; margin-bottom: 22px; }
-  .foot-emblem { height: 62px; width: auto; flex: none; }
-  .foot-word { display: flex; flex-direction: column; line-height: 1; }
-  .foot-brand .fb-name { font-family: var(--serif); font-size: 30px; color: var(--gold-light); letter-spacing: 0.1em; }
-  .foot-brand .fb-tag { font-size: 8px; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(251,248,241,0.55); margin: 5px 0 0; }
+  .foot-lockup { width: 252px; max-width: 82%; height: auto; display: block; margin-bottom: 24px; }
   .foot-brand p { font-size: 15px; max-width: 320px; font-weight: 300; }
   .foot-col h4 { font-family: var(--sans); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 20px; font-weight: 500; }
   .foot-col a, .foot-col .li { display: block; font-size: 15px; color: rgba(251,248,241,0.7); margin-bottom: 13px; font-weight: 300; transition: color .2s ease; }
@@ -435,9 +434,8 @@
   }
   @media (max-width: 600px) {
     .wrap { padding: 0 20px; }
-    .brand-word .name { font-size: 20px; }
-    .brand-emblem { height: 46px; }
-    header.scrolled .brand-emblem { height: 40px; }
+    .brand-symbol { height: 42px; }
+    header.scrolled .brand-symbol { height: 37px; }
     .nav-actions { gap: 9px; }
     .svc-grid, .steps, .blog-grid, .foot-grid { grid-template-columns: 1fr; }
     .hero { padding: 140px 0 80px; }
@@ -527,11 +525,9 @@
 <!-- ================= NAV ================= -->
 <header id="header">
   <div class="wrap nav">
-    <a href="#top" class="brand" aria-label="Waymark home">
-      <img class="brand-emblem" src="assets/waymark_icon.svg" alt="Waymark Inc." />
-      <span class="brand-word">
-        <span class="name">WAYMARK</span>
-      </span>
+    <a href="#top" class="brand" aria-label="Waymark Inc. — Marking the way back">
+      <img class="brand-lockup" src="assets/waymark-logo-horizontal.svg" alt="Waymark Inc. — Marking the way back" />
+      <img class="brand-symbol" src="assets/waymark-symbol.svg" alt="" aria-hidden="true" />
     </a>
 
     <nav class="nav-links" aria-label="Primary">
@@ -932,13 +928,7 @@
   <div class="wrap">
     <div class="foot-grid">
       <div class="foot-brand">
-        <div class="foot-lock">
-          <img class="foot-emblem" src="assets/waymark_icon.svg" alt="Waymark Inc." />
-          <div class="foot-word">
-            <div class="fb-name">WAYMARK</div>
-            <div class="fb-tag" data-i18n="foot-tag">Marking the way back</div>
-          </div>
-        </div>
+        <img class="foot-lockup" src="assets/waymark-logo-horizontal-negative.svg" alt="Waymark Inc. — Marking the way back" />
         <p data-i18n="foot-brand-p">Helping couples and individuals find the path home — through coaching and guidance rooted in five decades of relationship restoration. Continuing the legacy of Dr. Jim Talley.</p>
       </div>
       <div class="foot-col">
